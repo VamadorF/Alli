@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "AlivIA Clientes",
+    "slug": "alivia-clientes",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "scheme": "alivia-clientes"
+  }
+}

@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  entries   PainEntry[]
+}
+
+model PainEntry {
+  id         String   @id @default(cuid())
+  patientId  String
+  patient    Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  nrs        Int?
+  fpsR       Int?
+  phq2Total  Int?
+  topology   Boolean[] @default([])
+  createdAt  DateTime @default(now())
+}
